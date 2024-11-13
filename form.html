@@ -5,103 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration Form</title>
   <style>
-    /* Add your custom CSS styles here */
+    /* CSS styles */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      background-image: url(pl.jpg);
+      background-size: cover;
+      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      
     }
 
-    .container {
-      display: flex;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+    .registration-form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
     }
 
-    .photo {
-      flex: 1;
-      background-image: url(pl.jpg);
-      background-size: cover;
-      
-      background-position: center;
+    .registration-form h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
 
-    .form-container {
-      flex: 1;
-      padding: 50px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
+    .registration-form label {
       display: block;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 0.5rem;
     }
 
-    input[type="text"], input[type="email"], input[type="password"] {
+    .registration-form input {
       width: 100%;
-      padding: 10px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
       border: 1px solid #ccc;
-      border-radius: 3px;
-      font-size: 16px;
+      border-radius: 4px;
     }
 
-    button {
+    .registration-form button {
+      display: block;
       width: 100%;
-      padding: 10px;
-      background-color: #4CAF50;
+      padding: 0.75rem;
+      background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 3px;
+      border-radius: 4px;
       cursor: pointer;
-      font-size: 16px;
     }
 
-    button:hover {
-      background-color: #45a049;
+    .registration-form button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="photo"></div>
-    <div class="form-container">
-      <h1>Register</h1>
-      <form>
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" placeholder="Enter a password" required>
-        </div>
-        <button type="submit">Register</button>
-      </form>
-    </div>
+  <div class="registration-form">
+    <h2>Register</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Register</button>
+    </form>
   </div>
 
   <script>
-    // Add your custom JavaScript functionality here
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Add your form submission logic here
-      console.log('Form submitted!');
+    // JavaScript code
+    document.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      // You can add your registration logic here, such as sending the data to a server
+      console.log('Name:', name);
+      console.log('Email:', email);
+      console.log('Password:', password);
+      // Clear the form
+      event.target.reset();
     });
   </script>
 </body>
